@@ -1,0 +1,19 @@
+index:
+1-contain welcom page.
+2-the style will be navy color with shady dark edges.
+3-the text "Welcom to our web ......" will disappear in 6 seconds and go to problem page
+
+contact us	:
+1-contain form to send emails to developers.
+
+about us:
+1-contain information about developers and the website.
+
+problem:
+1-contain form to handle the problem and it contain navigation bar.
+
+solution:
+1-contain the shares for each heir and the graph (circle graph).
+
+UsedColors:
+Navy , Aqua , Teal

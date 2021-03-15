@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript">
+  function Submit() {
+    alert("Your message has been sent. We will reply in the next 24h");
+  }
+  </script>
+  </head>
+  <body>
+    <div class="newDiv2" id="sendMessage">
+      <p style="color: #FF4500; font-family:'Open sans', sans-serif; font-size: 30px;
+      line-height: 120%; ">Send us a message </p>
+      <form onsubmit="Submit()">
+
+
+      <label for="">Name</label>
+      <input type="text" name="name" value="" placeholder="Ahmad Alhaich" pattern="^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)" required>*<br><br>
+      <label for="">Email</label>
+      <input type="email" name="mail" value="" placeholder="example@gmail.com" required>*<br><br>
+      Question* <br><br>
+      <textarea name="message" rows="8" cols="80" style="resize:none" required></textarea><br><br>
+
+      <input type="submit" name="" value="Submit">
+
+      </form>
+    </div>
+    <?php
+      if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $subject = "Nothing";
+        $from = $_POST['mail'];
+        $message = $_POST['message'];
+
+        $mailTo = "mms316@student.bau.edu.lb";
+        $headers = "This Email Was Sent From ".$from;
+        $txt = "You Have Received an e-mail from ".$name.".\n\n".$message;
+        mail($mailTo, $subject, $txt, $headers);
+        header("Location: index.php?mailsend");
+
+      }
+     ?>
+  </body>
+</html>

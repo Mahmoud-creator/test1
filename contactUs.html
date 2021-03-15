@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Us</title>
+  </head>
+  <body>
+
+
+      <p>SEND E-MAIL</p>
+      <form class="contact-form" method="post">
+        <input type="text" name="name" placeholder="Full Name">
+        <input type="text" name="mail" placeholder="Your email">
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" placeholder="Message"></textarea>
+        <button type="submit" name="submit">SEND MAIL</button>
+      </form>
+
+
+    <?php
+      if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $subject = $_POST['subject'];
+        $from = $_POST['mail'];
+        $message = $_POST['message'];
+
+        $mailTo = "mms316@student.bau.edu.lb";
+        $headers = "This Email Was Sent From ".$from;
+        $txt = "You Have Received an e-mail from ".$name.".\n\n".$message;
+        mail($mailTo, $subject, $txt, $headers);
+        header("Location: index.php?mailsend");
+
+      }
+     ?>
+  </body>
+</html>
